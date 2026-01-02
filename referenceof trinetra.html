@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPEED Clothing Manufacturing</title>
+
+<style>
+:root{
+    --primary-color:#ffb300;
+    --secondary-color:#e63946;
+    --bg-darker:#0f0f0f;
+    --text-light:#f1f1f1;
+    --sidebar-width:250px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma;}
+
+body{
+    display:flex;
+    height:100vh;
+    color:var(--text-light);
+    background:#1a1a1a;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:var(--sidebar-width);
+    background:var(--bg-darker);
+    padding:20px;
+    position:fixed;
+    height:100%;
+    border-right:2px solid var(--primary-color);
+}
+.brand{
+    font-size:1.8rem;
+    color:var(--primary-color);
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:40px;
+}
+.menu-links{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+.menu-links a{
+    text-decoration:none;
+    color:var(--text-light);
+    padding:14px;
+    border-radius:8px;
+    text-align:center;
+    font-weight:bold;
+}
+.menu-links a:hover{
+    background:rgba(255,179,0,.2);
+    color:var(--primary-color);
+}
+
+/* MAIN CONTENT */
+.main-content{
+    margin-left:var(--sidebar-width);
+    padding:30px;
+    overflow-y:auto;
+    flex:1;
+}
+section{
+    background:#252525;
+    padding:30px;
+    margin-bottom:40px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,.5);
+}
+h2{
+    color:var(--primary-color);
+    border-bottom:2px solid var(--secondary-color);
+    margin-bottom:25px;
+    display:inline-block;
+}
+h3{color:var(--secondary-color);margin:20px 0 10px}
+
+/* PRODUCT GRID */
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+.menu-item-card{
+    background:var(--bg-darker);
+    padding:15px;
+    border-radius:8px;
+    border:1px solid #333;
+}
+.menu-item-card img{
+    width:100%;
+    height:140px;
+    object-fit:cover;
+    display:none;
+}
+.menu-item-card:hover img{display:block}
+.menu-item-card:hover{transform:scale(1.03)}
+.price{
+    float:right;
+    color:var(--primary-color);
+    font-weight:bold;
+}
+
+/* BILLING */
+.billing-controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:flex-end;
+}
+.control-group{
+    display:flex;
+    flex-direction:column;
+}
+label{color:#aaa;margin-bottom:5px}
+select,input[type=number]{
+    padding:10px;
+    background:var(--bg-darker);
+    color:white;
+    border:1px solid var(--primary-color);
+    border-radius:5px;
+}
+.btn{
+    padding:10px 20px;
+    background:var(--primary-color);
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.btn:hover{background:#e6a300}
+.btn-danger{
+    background:var(--secondary-color);
+    color:white;
+}
+
+#billTable{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+#billTable th,#billTable td{
+    padding:12px;
+    border-bottom:1px solid #444;
+}
+#billTable th{
+    background:var(--bg-darker);
+    color:var(--primary-color);
+}
+.bill-total{
+    margin-top:20px;
+    text-align:right;
+    font-size:1.4rem;
+    color:var(--primary-color);
+}
+
+/* CONTACT */
+.social-links a{
+    color:var(--primary-color);
+    font-size:1.6rem;
+    margin-right:15px;
+}
+.social-links a:hover{color:var(--secondary-color)}
+</style>
+</head>
+
+<body>
+
+<nav class="sidebar">
+<div class="brand">SPEED CLOTHING</div>
+<ul class="menu-links">
+<li><a href="#products">Products</a></li>
+<li><a href="#orders">Order System</a></li>
+<li><a href="#manufacturing">Manufacturing</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#about">About Us</a></li>
+</ul>
+</nav>
+
+<main class="main-content">
+
+<!-- PRODUCTS -->
+<section id="products">
+<h2>Product Catalog</h2>
+
+<h3>Men Wear</h3>
+<div class="menu-grid">
+<div class="menu-item-card">
+<img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6">
+<span>Formal Shirt</span>
+<span class="price">₹600</span>
+</div>
+
+<div class="menu-item-card">
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b">
+<span>T-Shirt</span>
+<span class="price">₹350</span>
+</div>
+
+<div class="menu-item-card">
+<img src="https://images.unsplash.com/photo-1542060748-10c28b62716f">
+<span>Trousers</span>
+<span class="price">₹900</span>
+</div>
+</div>
+
+<h3>Winter Wear</h3>
+<div class="menu-grid">
+<div class="menu-item-card">
+<span>Hoodies</span>
+<span class="price">₹1200</span>
+</div>
+<div class="menu-item-card">
+<span>Sweaters</span>
+<span class="price">₹1100</span>
+</div>
+</div>
+</section>
+
+<!-- ORDER SYSTEM -->
+<section id="orders">
+<h2>Order & Bulk Billing</h2>
+
+<div class="billing-controls">
+<div class="control-group" style="flex:2">
+<label>Select Product</label>
+<select id="itemSelect"></select>
+</div>
+
+<div class="control-group">
+<label>Quantity</label>
+<input type="number" id="quantityInput" value="1" min="1">
+</div>
+
+<button class="btn" id="addToBillBtn">Add</button>
+</div>
+
+<table id="billTable">
+<thead>
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Qty</th>
+<th>Total</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="billTableBody"></tbody>
+</table>
+
+<div class="bill-total">
+Total Order Value: ₹<span id="grandTotal">0</span>
+</div>
+</section>
+
+<!-- MANUFACTURING -->
+<section id="manufacturing">
+<h2>Manufacturing Services</h2>
+<p>✔ Bulk garment production</p>
+<p>✔ Stitching, finishing & labeling</p>
+<p>✔ Advance payment based orders</p>
+<p>✔ Wholesale & institutional supply</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact</h2>
+<p>📞 +91 9970901481</p>
+<p>📧 speedclothing@gmail.com</p>
+<div class="social-links">
+<a><i class="fa-brands fa-instagram"></i></a>
+<a><i class="fa-brands fa-facebook"></i></a>
+<a><i class="fa-brands fa-whatsapp"></i></a>
+  <br><h2>Address & Location</h2>
+            <div class="contact-info">
+                <p>
+                    <span class="contact-icon">📍</span>
+                    Solapur Road, In Front Of Panchayat Sameeti,<br>
+                    Vidyanagar, Akkalkot,<br>
+                    Maharashtra 413216, India
+                </p>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3804.674763049878!2d76.20068907516814!3d17.52789398338391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDMxJzQwLjQiTiA3NsKwMTInMTEuOCJF!5e0!3m2!1sen!2sin!4v1709387590872!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0; border-radius: 8px; margin-top: 20px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About SPEED Clothing</h2>
+<p>
+SPEED Clothing Manufacturing is a professional garment manufacturing
+company focused on bulk apparel production, wholesale supply,
+and private labeling with consistent quality and timely delivery.
+</p>
+</section>
+
+</main>
+
+<script>
+const products=[
+{name:"Formal Shirt",price:600},
+{name:"T-Shirt",price:350},
+{name:"Trousers",price:900},
+{name:"Hoodies",price:1200},
+{name:"Sweaters",price:1100}
+];
+
+const itemSelect=document.getElementById("itemSelect");
+const qty=document.getElementById("quantityInput");
+const body=document.getElementById("billTableBody");
+const totalSpan=document.getElementById("grandTotal");
+let total=0;
+
+products.forEach((p,i)=>{
+let opt=document.createElement("option");
+opt.value=i;
+opt.text=`${p.name} - ₹${p.price}`;
+itemSelect.appendChild(opt);
+});
+
+document.getElementById("addToBillBtn").onclick=function(){
+let p=products[itemSelect.value];
+let q=parseInt(qty.value);
+let line=p.price*q;
+
+let row=body.insertRow();
+row.insertCell(0).innerText=p.name;
+row.insertCell(1).innerText="₹"+p.price;
+row.insertCell(2).innerText=q;
+row.insertCell(3).innerText="₹"+line;
+
+let del=row.insertCell(4);
+let btn=document.createElement("button");
+btn.innerText="X";
+btn.className="btn btn-danger";
+btn.onclick=()=>{row.remove();total-=line;totalSpan.innerText=total};
+del.appendChild(btn);
+
+total+=line;
+totalSpan.innerText=total;
+qty.value=1;
+}
+</script>
+
+</body>
+</html>
